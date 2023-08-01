@@ -1,44 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wchumane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/26 21:21:40 by wchumane          #+#    #+#             */
-/*   Updated: 2023/08/01 12:05:48 by wchumane         ###   ########.fr       */
+/*   Created: 2023/07/30 17:16:54 by wchumane          #+#    #+#             */
+/*   Updated: 2023/08/01 01:24:13 by wchumane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char	*str, char *to_find)
+int	ft_iterative_factorial(int nb)
 {
-	unsigned int	i;
-	unsigned int	c;
+	int	result;
 
-	i = 0;
-	if (to_find[i] == '\0')
-		return (str);
-	while (str[i] != '\0')
+	result = 1;
+	if (nb < 0)
+		return (0);
+	else if (nb == 0)
+		return (1);
+	else
 	{
-		c = 0;
-		while (str[i + c] == to_find[c])
+		while (nb > 0)
 		{
-			if (to_find[c + 1] == '\0')
-				return (&(str[i]));
-			c++;
+			result *= nb;
+			nb--;
 		}
-		i++;
 	}
-	return (0);
+	return (result);
 }
 /*
 #include <stdio.h>
-#include <string.h>
-int	main()
+int main (void)
 {
-	char str[] = "twttw hell ijedh";
-	char find[] = "abcd";
-	printf("%s\n", ft_strstr(str, find));
-	printf("%s\n", strstr(str, find));
-	
+	printf("%d\n", ft_iterative_factorial(3));
+	printf("%d\n", ft_iterative_factorial(-3));
+	printf("%d\n", ft_iterative_factorial(0));
 }*/
